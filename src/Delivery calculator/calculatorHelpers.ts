@@ -14,9 +14,8 @@ export function getSurchargeForDistance(distance: number) {
     }
 
     let result = distance / 500
-    result = Math.ceil(result)
 
-    return result
+    return Math.ceil(result)
 }
 
 
