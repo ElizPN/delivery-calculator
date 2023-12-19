@@ -1,5 +1,5 @@
 
-import { getSurchargeForCartValue, getSurchargeForDistance } from './calculatorHelpers';
+import { getSurchargeForCartValue, getSurchargeForDistance, getSurchargeForCartsCount } from './calculatorHelpers';
 
 describe("getSurchargeForLowCartValue", () => {
 
@@ -12,8 +12,6 @@ describe("getSurchargeForLowCartValue", () => {
         const result = getSurchargeForCartValue(8)
         expect(result).toEqual(2)
     });
-
-
 });
 
 
@@ -46,10 +44,38 @@ describe("getSurchargeForDistance", () => {
         expect(getSurchargeForDistance(2000)).toEqual(4)
     });
 
-
-
     test("should return 5 when distance between 2001 and 2500", () => {
         expect(getSurchargeForDistance(2001)).toEqual(5)
     });
+
+});
+
+
+describe("getSurchargeForCartsCount", () => {
+
+    test("should return 0 when carts count is 4", () => {
+        expect(getSurchargeForCartsCount(4)).toEqual(0)
+    });
+
+    test("should return 0.50 when carts count is 5", () => {
+        expect(getSurchargeForCartsCount(5)).toEqual(0.50)
+    });
+
+    test("should return 2.50 when carts count is 9", () => {
+        expect(getSurchargeForCartsCount(9)).toEqual(2.50)
+    });
+
+    test("should return 4 when carts count is 12", () => {
+        expect(getSurchargeForCartsCount(12)).toEqual(4)
+    });
+
+    test("should return 5.20 when carts count is 13", () => {
+        expect(getSurchargeForCartsCount(13)).toEqual(5.20)
+    });
+
+    test("should return 13.60 when carts count is 20", () => {
+        expect(getSurchargeForCartsCount(20)).toEqual(13.60)
+    });
+
 
 });
