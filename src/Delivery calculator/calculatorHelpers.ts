@@ -1,4 +1,4 @@
-export function getSurchargeForLowCartValue(cartValue: number) {
+export function getSurchargeForCartValue(cartValue: number) {
     if (cartValue > 10) {
         return 0
     }
