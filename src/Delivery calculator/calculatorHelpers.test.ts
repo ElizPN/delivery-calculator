@@ -18,6 +18,11 @@ describe("getSurchargeForLowCartValue", () => {
 describe("getSurchargeForDistance", () => {
 
     test("should return 1 when distance between 0 and 500", () => {
+        const result = getSurchargeForDistance(400)
+        expect(result).toEqual(1)
+    });
+
+    test("should return 1 when distance is 500", () => {
         const result = getSurchargeForDistance(500)
         expect(result).toEqual(1)
     });
