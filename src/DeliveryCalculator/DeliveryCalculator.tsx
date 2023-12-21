@@ -1,6 +1,7 @@
-import { Box, Button, TextField } from '@mui/material';
+import { Box, Button, Card, Container, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
 import { getDeliveryFee } from './getDeliveryFee';
+import { CardHeader } from '@mui/material';
 
 
 
@@ -18,32 +19,46 @@ export function DeliveryCalculator() {
     }
 
 
-    return <Box>
-        <TextField
-            onChange={(event) => setCartValue(Number(event.target.value))}
-            required
-            id="outlined-required"
-            label="Cart Value"
-        />
-        <TextField
-            onChange={(event) => setDistance(Number(event.target.value))}
-            required
-            id="outlined-required"
-            label="Distance"
-        />
-        <TextField
-            onChange={(event) => setCartsCount(Number(event.target.value))}
-            required
-            id="outlined-required"
-            label="Carts Count"
-        />
+    return <Container>
+        <Card variant="outlined" sx={{ display: "flex", justifyContent: "space-around", height: "500px", width: "50%", flexDirection: "column" }}>
+            <CardHeader></CardHeader>
+            <Typography variant="h5">
+                Delivery calcilator
+            </Typography>
+            <Box>
+                <TextField
+                    onChange={(event) => setCartValue(Number(event.target.value))}
+                    required
+                    id="outlined-required"
+                    label="Cart Value"
 
-        <Button variant="contained"
-            onClick={onclickHandler}>
-            Count Delivery Fee
-        </Button>
+                />
+            </Box>
+            <Box>
+                <TextField
+                    onChange={(event) => setDistance(Number(event.target.value))}
+                    required
+                    id="outlined-required"
+                    label="Distance"
+                />
+            </Box>
+            <Box>
+                <TextField
+                    type='number'
+                    onChange={(event) => setCartsCount(Number(event.target.value))}
+                    required
+                    id="outlined-required"
+                    label="Carts Count"
+                />
+            </Box>
 
-        <Box>{deliveryFee}</Box>
-    </Box>
+            <Button variant="contained"
+                onClick={onclickHandler}>
+                Count Delivery Fee
+            </Button>
+
+            <Box>{deliveryFee}</Box>
+        </Card>
+    </Container >
 
 }
