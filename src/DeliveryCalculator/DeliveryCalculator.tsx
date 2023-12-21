@@ -1,4 +1,4 @@
-import { Box, Button, Card, Container, TextField, Typography } from '@mui/material';
+import { Box, Button, Card, Chip, Container, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
 import { getDeliveryFee } from './getDeliveryFee';
 import { CardHeader } from '@mui/material';
@@ -21,16 +21,17 @@ export function DeliveryCalculator() {
 
     return <Container>
         <Card variant="outlined" sx={{ display: "flex", justifyContent: "space-around", height: "500px", width: "50%", flexDirection: "column" }}>
-            <CardHeader></CardHeader>
-            <Typography variant="h5">
-                Delivery calcilator
-            </Typography>
+            <CardHeader title="Delivery calcilator" />
             <Box>
                 <TextField
                     onChange={(event) => setCartValue(Number(event.target.value))}
                     required
+                    type='number'
                     id="outlined-required"
                     label="Cart Value"
+                    InputProps={{
+                        inputProps: { min: 0 }
+                    }}
 
                 />
             </Box>
@@ -38,8 +39,12 @@ export function DeliveryCalculator() {
                 <TextField
                     onChange={(event) => setDistance(Number(event.target.value))}
                     required
+                    type='number'
                     id="outlined-required"
                     label="Distance"
+                    InputProps={{
+                        inputProps: { min: 0 }
+                    }}
                 />
             </Box>
             <Box>
@@ -49,6 +54,9 @@ export function DeliveryCalculator() {
                     required
                     id="outlined-required"
                     label="Carts Count"
+                    InputProps={{
+                        inputProps: { min: 0 }
+                    }}
                 />
             </Box>
 
@@ -57,7 +65,7 @@ export function DeliveryCalculator() {
                 Count Delivery Fee
             </Button>
 
-            <Box>{deliveryFee}</Box>
+            <Box><Chip label={deliveryFee} variant="outlined" /></Box>
         </Card>
     </Container >
 
