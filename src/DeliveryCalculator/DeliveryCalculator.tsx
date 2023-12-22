@@ -1,4 +1,4 @@
-import { Box, Button, Card, Chip, Container, TextField, Typography } from '@mui/material';
+import { Box, Button, Card, Chip, Container, TextField } from '@mui/material';
 import { useState } from 'react';
 import { getDeliveryFee } from './getDeliveryFee';
 import { CardHeader } from '@mui/material';
@@ -21,7 +21,7 @@ export function DeliveryCalculator() {
 
     return <Container>
         <Card variant="outlined" sx={{ display: "flex", justifyContent: "space-around", height: "500px", width: "50%", flexDirection: "column" }}>
-            <CardHeader title="Delivery calcilator" />
+            <CardHeader title="Delivery calculator" />
             <Box>
                 <TextField
                     onChange={(event) => setCartValue(Number(event.target.value))}
