@@ -1,5 +1,5 @@
 
-import { getSurchargeForCartValue, getSurchargeForDistance, getSurchargeForCartsCount } from './calculatorHelpers';
+import { getSurchargeForCartValue, getSurchargeForDistance, getSurchargeForCartsCount, getSurchargePickTime } from './calculatorHelpers';
 
 describe("getSurchargeForLowCartValue", () => {
 
@@ -80,6 +80,19 @@ describe("getSurchargeForCartsCount", () => {
 
     test("should return 13.60 when carts count is 20", () => {
         expect(getSurchargeForCartsCount(20)).toEqual(13.60)
+    });
+
+});
+
+describe("getSurchargePickTime", () => {
+
+    test("should return same delivery fee (5) when no pic time", () => {
+        expect(getSurchargePickTime(5, "2015-03-25T14:00:00Z")).toEqual(5)
+    });
+
+
+    test("should return delivery fee 6 when  pic time", () => {
+        expect(getSurchargePickTime(5, "2015-03-27T15:00:00Z")).toEqual(6)
     });
 
 

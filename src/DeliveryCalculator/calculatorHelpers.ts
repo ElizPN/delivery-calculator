@@ -30,6 +30,35 @@ export function getSurchargeForCartsCount(cartsCount: number) {
 
     const firstFee = 8 * 0.50
     const secondFeee = (cartsCount - 12) * 1.20
- 
+
     return firstFee + secondFeee
 }
+
+
+export function checkPickTime(stringDayeISO: string) {
+
+    const date = new Date(stringDayeISO)
+    const day = date.getDay()
+    const hours = date.getHours()
+
+    return day === 5 && (hours >= 15 && hours <= 19)
+
+}
+
+
+export function getSurchargePickTime(deliveryFee: number, time: string) {
+
+    if (checkPickTime(time)) {
+
+        return deliveryFee * 1.20
+    } else {
+
+        return deliveryFee
+    }
+}
+
+
+
+
+
+
