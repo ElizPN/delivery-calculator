@@ -46,19 +46,5 @@ export function checkPickTime(stringDayeISO: string) {
 }
 
 
-export function getSurchargePickTime(deliveryFee: number, time: string) {
-
-    if (checkPickTime(time)) {
-
-        return deliveryFee * 1.20
-    } else {
-
-        return deliveryFee
-    }
-}
-
-
-
-
-
+export const getSurchargePickTime = (deliveryFee: number, time: string) => checkPickTime(time) ? deliveryFee * 1.20 : deliveryFee
 
