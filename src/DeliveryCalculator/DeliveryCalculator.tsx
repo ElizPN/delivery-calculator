@@ -15,11 +15,11 @@ export function DeliveryCalculator() {
     const [cartValue, setCartValue] = useState(0)
     const [distance, setDistance] = useState(0)
     const [cartsCount, setCartsCount] = useState(0)
-    const [deliveryTime, setdDeliveryTime] = useState("")
+    const [deliveryTime, setdDeliveryTime] = useState<Date | null | unknown>(new Date())
     const [deliveryFee, setDeliveryFee] = useState(0)
 
     function onclickHandler() {
-        const deliveryFee = getDeliveryFee(cartValue, distance, cartsCount, deliveryTime)
+        const deliveryFee = getDeliveryFee(cartValue, distance, cartsCount, (deliveryTime as Date).toString())
         setDeliveryFee(deliveryFee)
     }
 
@@ -67,7 +67,7 @@ export function DeliveryCalculator() {
             <Box>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DemoContainer components={['DateTimePicker']}>
-                        <DateTimePicker label="Basic date time picker" />
+                        <DateTimePicker label="Basic date time picker" onChange={(newDate) => setdDeliveryTime(newDate)} />
                     </DemoContainer>
                 </LocalizationProvider>
             </Box>
