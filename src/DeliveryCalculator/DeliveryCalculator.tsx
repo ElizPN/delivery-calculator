@@ -2,6 +2,10 @@ import { Box, Button, Card, Chip, Container, TextField } from '@mui/material';
 import { useState } from 'react';
 import { getDeliveryFee } from './getDeliveryFee';
 import { CardHeader } from '@mui/material';
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 
 
 
@@ -58,6 +62,13 @@ export function DeliveryCalculator() {
                         inputProps: { min: 0 }
                     }}
                 />
+            </Box>
+            <Box>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DemoContainer components={['DateTimePicker']}>
+                        <DateTimePicker label="Basic date time picker" />
+                    </DemoContainer>
+                </LocalizationProvider>
             </Box>
 
             <Button variant="contained"
