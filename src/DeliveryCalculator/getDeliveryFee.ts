@@ -1,8 +1,8 @@
-import { getSurchargeForCartValue, getSurchargeForCartsCount, getSurchargeForDistance } from "./calculatorHelpers"
+import { getSurchargeForCartValue, getSurchargeForCartsCount, getSurchargeForDistance, getSurchargePickTime } from "./calculatorHelpers"
 
 
 
-export function getDeliveryFee(cartValue: number, distance: number, cartsCount: number) {
+export function getDeliveryFee(cartValue: number, distance: number, cartsCount: number, time: string) {
     if (cartValue >= 100) {
         return 0
     }
@@ -11,6 +11,7 @@ export function getDeliveryFee(cartValue: number, distance: number, cartsCount: 
     deliveryFee = getSurchargeForCartValue(cartValue)
     deliveryFee += getSurchargeForDistance(distance)
     deliveryFee += getSurchargeForCartsCount(cartsCount)
+    deliveryFee = getSurchargePickTime(deliveryFee, time)
 
     if (deliveryFee > 15) {
         return 15

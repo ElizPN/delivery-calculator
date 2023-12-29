@@ -15,10 +15,11 @@ export function DeliveryCalculator() {
     const [cartValue, setCartValue] = useState(0)
     const [distance, setDistance] = useState(0)
     const [cartsCount, setCartsCount] = useState(0)
+    const [deliveryTime, setdDeliveryTime] = useState("")
     const [deliveryFee, setDeliveryFee] = useState(0)
 
     function onclickHandler() {
-        const deliveryFee = getDeliveryFee(cartValue, distance, cartsCount)
+        const deliveryFee = getDeliveryFee(cartValue, distance, cartsCount, deliveryTime)
         setDeliveryFee(deliveryFee)
     }
 

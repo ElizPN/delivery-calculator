@@ -35,9 +35,9 @@ export function getSurchargeForCartsCount(cartsCount: number) {
 }
 
 
-export function checkPickTime(stringDayeISO: string) {
+export function checkPickTime(timeISO: string) {
 
-    const date = new Date(stringDayeISO)
+    const date = new Date(timeISO)
     const day = date.getDay()
     const hours = date.getHours()
 
